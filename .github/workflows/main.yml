@@ -34,7 +34,7 @@ jobs:
         mv libmpv-2.dll mpv/mpv.dll
         echo "LIBRARY MPV" > mpv.def.fixed
         echo "EXPORTS" >> mpv.def.fixed
-        for /f "tokens=1,4" %A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %B >> mpv.def.fixed
+        for /f "tokens=1,4" %%A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %%B >> mpv.def.fixed
         mv mpv.def.fixed mpv.def
         mv mpv.def libmpv.dll.a mpv/
         mv mpv build/
@@ -80,7 +80,7 @@ jobs:
         mv libmpv-2.dll mpv/mpv.dll
         echo "LIBRARY MPV" > mpv.def.fixed
         echo "EXPORTS" >> mpv.def.fixed
-        for /f "tokens=1,4" %A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %B >> mpv.def.fixed
+        for /f "tokens=1,4" %%A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %%B >> mpv.def.fixed
         mv mpv.def.fixed mpv.def
         mv mpv.def libmpv.dll.a mpv/
         mv mpv build/
