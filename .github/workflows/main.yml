@@ -34,13 +34,14 @@ jobs:
         mv libmpv-2.dll mpv/mpv.dll
         echo "LIBRARY MPV" > mpv.def.fixed
         echo "EXPORTS" >> mpv.def.fixed
+        mv libmpv.dll.a mpv/
       shell: bash
     - name: Build
       run: |
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
         for /f "tokens=1,4" %%A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %%B >> mpv.def.fixed
-        mv mpv.def.fixed mpv.def
-        mv mpv.def libmpv.dll.a mpv/
+        type mpv.def.fixed
+        mv mpv.def.fixed mpv/mpv.def
         mv mpv build/
         cd build
         set PATH=%PATH%;C:\Program Files (x86)\WiX Toolset v3.11\bin;%CD%
@@ -80,13 +81,14 @@ jobs:
         mv libmpv-2.dll mpv/mpv.dll
         echo "LIBRARY MPV" > mpv.def.fixed
         echo "EXPORTS" >> mpv.def.fixed
+        mv libmpv.dll.a mpv/
       shell: bash
     - name: Build
       run: |
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars32.bat"
         for /f "tokens=1,4" %%A in ('dumpbin /exports libmpv-2.dll ^| findstr /c:" mpv_"') do echo %%B >> mpv.def.fixed
-        mv mpv.def.fixed mpv.def
-        mv mpv.def libmpv.dll.a mpv/
+        type mpv.def.fixed
+        mv mpv.def.fixed mpv/mpv.def
         mv mpv build/
         cd build
         set PATH=%PATH%;C:\Program Files (x86)\WiX Toolset v3.11\bin;%CD%
