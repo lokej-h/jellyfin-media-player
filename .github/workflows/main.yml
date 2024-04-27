@@ -26,7 +26,7 @@ jobs:
         curl -L https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip > ninja.zip
         unzip ninja.zip
         mv ninja.exe build/
-        curl -L https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20231215/mpv-dev-x86_64-20231215-git-e9d0a31.7z > mpv.7z
+        curl -L https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20240426/mpv-dev-x86_64-20240426-git-2e03e03.7z > mpv.7z
         7z x mpv.7z
         mkdir mpv
         mv include mpv
@@ -72,7 +72,7 @@ jobs:
         curl -L https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip > ninja.zip
         unzip ninja.zip
         mv ninja.exe build/
-        curl -L https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20231215/mpv-dev-i686-20231215-git-e9d0a31.7z > mpv.7z
+        curl -L https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20240426/mpv-dev-i686-20240426-git-2e03e03.7z > mpv.7z
         7z x mpv.7z
         mkdir mpv
         mv include mpv
