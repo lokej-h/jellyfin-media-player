@@ -27,7 +27,7 @@ jobs:
         curl -L https://github.com/ninja-build/ninja/releases/download/v1.10.2/ninja-win.zip > ninja.zip
         unzip ninja.zip
         mv ninja.exe build/
-        curl -L https://github.com/iwalton3/mpv-winbuild-cmake/releases/download/v20230304-git-362256e/mpv-dev-x86_64-20230304-git-362256e.7z > mpv.7z
+        curl -L https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20240426/mpv-dev-x86_64-v3-20240426-git-2e03e03.7z > mpv.7z
         7z x mpv.7z
         mkdir mpv
         mv include mpv
@@ -40,9 +40,9 @@ jobs:
       run: |
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
         dumpbin /exports mpv/mpv.dll | findstr /C:" mpv_" > dump.txt
-        type dump.txt
+        # type dump.txt
         for /f "tokens=4" %%A in (dump.txt) do (echo %%A >> mpv.def.fixed)
-        type mpv.def.fixed
+        # type mpv.def.fixed
         mv mpv.def.fixed mpv/mpv.def
         mv mpv build/
         cd build
