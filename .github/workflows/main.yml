@@ -40,7 +40,8 @@ jobs:
       run: |
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
         dumpbin /exports libmpv-2.dll | findstr /C:" mpv_" > dump.txt
-        for /f "tokens=4" %A in (dump.txt) do (echo %A >> mpv.def.fixed)
+        type dump.txt
+        for /f "tokens=4" %%A in (dump.txt) do (echo %%A >> mpv.def.fixed)
         type mpv.def.fixed
         mv mpv.def.fixed mpv/mpv.def
         mv mpv build/
